@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WhatDidYouDraw.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resources="clr-namespace:WhatDidYouDraw;assembly=WhatDidYouDraw"
+    Title="SettingsPage"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False">
+    <Grid RowDefinitions="*,*,*">
+        <ImageButton
+            x:Name="ExitSettingsButton"
+            Grid.Row="0"
+            Margin="0,0,2,0"
+            BackgroundColor="Transparent"
+            Clicked="ExitSettingsButton_Clicked"
+            HeightRequest="50"
+            HorizontalOptions="End"
+            Rotation="180"
+            Source="sipka.png"
+            VerticalOptions="Start"
+            WidthRequest="50" />
+        <Label
+            Grid.Row="0"
+            FontFamily="NiceSugar"
+            FontSize="65"
+            HorizontalOptions="Center"
+            Text="Settings"
+            TextColor="Black"
+            VerticalOptions="Center" />
+
+        <VerticalStackLayout
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label
+                    FontFamily="NiceSugar"
+                    FontSize="50"
+                    HorizontalOptions="Center"
+                    Text="{Binding Value, Source={x:Reference TimeStepper}, StringFormat='Time: {0}'}"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <Stepper
+                x:Name="TimeStepper"
+                BackgroundColor="#fad33d"
+                HeightRequest="60"
+                HorizontalOptions="Center"
+                Increment="5"
+                Maximum="20"
+                Minimum="5"
+                WidthRequest="200" />
+        </VerticalStackLayout>
+
+
+        <VerticalStackLayout
+            Grid.Row="2"
+            HorizontalOptions="Center"
+            VerticalOptions="Start">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label
+                    FontFamily="NiceSugar"
+                    FontSize="50"
+                    HorizontalOptions="Center"
+                    Text="{Binding Value, Source={x:Reference RoundsStepper}, StringFormat='Rounds: {0}'}"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <Stepper
+                x:Name="RoundsStepper"
+                BackgroundColor="#fad33d"
+                HeightRequest="60"
+                HorizontalOptions="Center"
+                Maximum="6"
+                Minimum="1"
+                WidthRequest="200" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

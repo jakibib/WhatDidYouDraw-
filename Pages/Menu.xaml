@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WhatDidYouDraw.Pages.Menu"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resources="clr-namespace:WhatDidYouDraw;assembly=WhatDidYouDraw"
+    x:Name="MenuContentPage"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False"
+    Resources="{resources:ButtonAnimation}">
+    <ContentPage.Content>
+        <Grid BackgroundColor="Transparent">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="BigGridTapGestureRecognizer_Tapped" />
+            </Grid.GestureRecognizers>
+            <Image
+                x:Name="WifiStateImage"
+                HeightRequest="50"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                WidthRequest="50" />
+
+            <Image
+                Aspect="AspectFill"
+                Rotation="45"
+                Source="pencil2.png"
+                TranslationX="150"
+                TranslationY="-270" />
+            <Image
+                Rotation="45"
+                Source="pencil2.png"
+                TranslationX="40"
+                TranslationY="-380" />
+
+
+
+            <Grid RowDefinitions="2*,*,*">
+
+
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start">
+                    <Label
+                        FontFamily="NiceSugar"
+                        FontSize="50"
+                        HorizontalOptions="Center"
+                        Text="What"
+                        TextColor="Black" />
+                    <Label
+                        FontFamily="NiceSugar"
+                        FontSize="50"
+                        HorizontalOptions="Center"
+                        Text="did you draw?"
+                        TextColor="Black" />
+                    <Label
+                        FontFamily="NiceSugar"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Text="Draw what's on the screen"
+                        TextColor="Black" />
+
+                </VerticalStackLayout>
+                <Button
+                    x:Name="PlayButton"
+                    Grid.Row="2"
+                    Margin="10"
+                    BackgroundColor="#fad33d"
+                    Clicked="PlayButton_Clicked"
+                    CornerRadius="7"
+                    FontFamily="RobotoMono"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    Text="Play"
+                    TextColor="White"
+                    VerticalOptions="Start"
+                    WidthRequest="200" />
+
+            </Grid>
+
+            <Grid
+                x:Name="DropMenu"
+                AnchorY="1"
+                HeightRequest="250"
+                HorizontalOptions="End"
+                IsVisible="false"
+                ScaleY="0.2"
+                VerticalOptions="End"
+                WidthRequest="55">
+                <Border BackgroundColor="Transparent" Opacity="0" />
+                <VerticalStackLayout HorizontalOptions="Center" WidthRequest="50">
+                    <ImageButton
+                        x:Name="TiktokButton"
+                        Margin="0,15,0,0"
+                        BackgroundColor="Transparent"
+                        Clicked="TiktokButton_Clicked"
+                        HeightRequest="50"
+                        Source="tiktokicon.png"
+                        WidthRequest="50" />
+                    <ImageButton
+                        x:Name="TwitterButton"
+                        Margin="0,15,0,0"
+                        BackgroundColor="Transparent"
+                        Clicked="TwitterButton_Clicked"
+                        HeightRequest="42"
+                        Source="twittericon.png"
+                        WidthRequest="42" />
+                    <ImageButton
+                        x:Name="SettingsButton"
+                        Margin="0,15,0,0"
+                        BackgroundColor="Transparent"
+                        Clicked="SettingsButton_Clicked"
+                        HeightRequest="50"
+                        Source="settingsicon.png"
+                        WidthRequest="50" />
+                </VerticalStackLayout>
+
+            </Grid>
+            <Grid
+                x:Name="PlayMenu"
+                HeightRequest="180"
+                HorizontalOptions="Center"
+                IsVisible="true"
+                ScaleX="0.74"
+                ScaleY="0.33"
+                TranslationY="{Binding Y, Source={x:Reference PlayButton}}"
+                VerticalOptions="Center"
+                WidthRequest="300">
+                <Border
+                    BackgroundColor="White"
+                    Stroke="black"
+                    StrokeShape="RoundRectangle 20,20,20,20"
+                    StrokeThickness="5">
+
+                    <Grid>
+                        <Button
+                            x:Name="SingleplayerButton"
+                            Margin="18"
+                            BackgroundColor="#fad33d"
+                            Clicked="SingleplayerButton_Clicked"
+                            FontFamily="RobotoMono"
+                            HeightRequest="60"
+                            HorizontalOptions="Center"
+                            Text="Singleplayer"
+                            TextColor="White"
+                            VerticalOptions="Start"
+                            WidthRequest="200" />
+                        <Button
+                            x:Name="MultiplayerButton"
+                            Margin="0,18"
+                            BackgroundColor="#fad33d"
+                            Clicked="MultiplayerButton_Clicked"
+                            FontFamily="RobotoMono"
+                            HeightRequest="60"
+                            HorizontalOptions="Center"
+                            IsEnabled="False"
+                            Text="Multiplayer(in dev)"
+                            TextColor="White"
+                            VerticalOptions="End"
+                            WidthRequest="200" />
+                    </Grid>
+                </Border>
+            </Grid>
+            <ImageButton
+                x:Name="DropMenuButton"
+                Margin="0,0,2,0"
+                BackgroundColor="Transparent"
+                Clicked="DropMenuButton_Clicked"
+                HeightRequest="50"
+                HorizontalOptions="End"
+                Source="sipka.png"
+                Style="{x:StaticResource StyleNull}"
+                VerticalOptions="End"
+                WidthRequest="50"
+                ZIndex="100" />
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

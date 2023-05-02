@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WhatDidYouDraw.Pages.GameBeginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:WhatDidYouDraw.Classes"
+    xmlns:resources="clr-namespace:WhatDidYouDraw;assembly=WhatDidYouDraw"
+    BackgroundColor="#fad33d"
+    NavigationPage.HasNavigationBar="False"
+    Resources="{resources:ButtonAnimation}">
+    <Grid>
+        <Label
+            x:Name="DrawingXLabel"
+            Grid.Row="0"
+            FontFamily="RobotoMono"
+            FontSize="Small"
+            HorizontalOptions="Center"
+            Opacity="0.8"
+            TextColor="Grey"
+            VerticalOptions="Start">
+            <Label.Text>
+                <MultiBinding StringFormat="Drawing {1}/{0}">
+                    <Binding Source="{x:Static local:HodnotyClass.Rounds}" />
+                    <Binding Source="{x:Static local:HodnotyClass.RoundsElapsed}" />
+                </MultiBinding>
+            </Label.Text>
+
+        </Label>
+
+        <VerticalStackLayout
+            Grid.Row="2"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+
+            <Label
+                FontFamily="NiceSugar"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="Draw"
+                TextColor="Black"
+                VerticalOptions="Start" />
+            <Label
+                x:Name="NakresliLabel"
+                FontFamily="NiceSugar"
+                FontSize="50"
+                HorizontalOptions="Center"
+                TextColor="Black"
+                VerticalOptions="End" />
+
+            <Label
+                x:Name="TimeDrawLabel"
+                FontFamily="NiceSugar"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="{Binding Source={x:Static local:HodnotyClass.Time}, StringFormat='in under {0} seconds'}"
+                TextColor="Black"
+                VerticalOptions="Start" />
+
+            <Button
+                Margin="0,60,0,0"
+                BackgroundColor="White"
+                Clicked="PlayButton_Clicked"
+                CornerRadius="7"
+                FontFamily="RobotoMono"
+                FontSize="15"
+                HeightRequest="60"
+                HorizontalOptions="Center"
+                Text="Got It!"
+                TextColor="#fad33d"
+                VerticalOptions="Center"
+                WidthRequest="200" />
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

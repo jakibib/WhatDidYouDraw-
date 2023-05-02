@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WhatDidYouDraw.Pages.DrawGamePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:WhatDidYouDraw.Classes"
+    xmlns:resources="clr-namespace:WhatDidYouDraw;assembly=WhatDidYouDraw"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Name="DrawGameContentPage"
+    Title="DrawGamePage"
+    Appearing="DrawGamePage_Appearing"
+    BackgroundColor="#fad33d"
+    NavigationPage.HasNavigationBar="False"
+    Resources="{resources:ButtonAnimation}">
+    <Grid
+        ColumnDefinitions="*,*,*"
+        NavigationPage.HasNavigationBar="False"
+        RowDefinitions="50,3, *">
+        <Grid />
+        <Label
+            x:Name="DrawLabel"
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="10,0,0,0"
+            FontFamily="RobotoMono"
+            HorizontalOptions="Start"
+            Opacity="0.8"
+            Text="{Binding Source={x:Static local:HodnotyClass.VybraneSlovo}}"
+            TextColor="Gray"
+            VerticalOptions="Center" />
+        <Border
+            Grid.Row="0"
+            Grid.Column="1"
+            BackgroundColor="White"
+            HeightRequest="40"
+            HorizontalOptions="Center"
+            Stroke="black"
+            StrokeShape="RoundRectangle 10,10,10,10"
+            StrokeThickness="2.5"
+            VerticalOptions="Center"
+            WidthRequest="100">
+            <Label
+                x:Name="OdpocetLabel"
+                BackgroundColor="White"
+                FontFamily="RobotoMono"
+                FontSize="18"
+                HorizontalOptions="Center"
+                TextColor="Black"
+                VerticalOptions="Center" />
+        </Border>
+        <HorizontalStackLayout
+            Grid.Column="2"
+            HeightRequest="40"
+            HorizontalOptions="End">
+            <ImageButton
+                Margin="0,0,10,0"
+                BackgroundColor="Transparent"
+                Clicked="ClearButton_Clicked"
+                CornerRadius="7"
+                HeightRequest="35"
+                Source="clear.png"
+                WidthRequest="35" />
+            <ImageButton
+                Margin="10,0,10,0"
+                BackgroundColor="Transparent"
+                Clicked="SkipButton_Clicked"
+                x:Name="SkipButton"
+                CornerRadius="7"
+                HeightRequest="40"
+                Rotation="90"
+                Source="sipka.png"
+                WidthRequest="40" />
+        </HorizontalStackLayout>
+        <Rectangle
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            BackgroundColor="Black"
+            Opacity="0.5" />
+
+        <toolkit:DrawingView
+            x:Name="DrawingBoard"
+            Grid.Row="2"
+            Grid.ColumnSpan="3"
+            Background="White"
+            IsMultiLineModeEnabled="True" />
+    </Grid>
+</ContentPage>
